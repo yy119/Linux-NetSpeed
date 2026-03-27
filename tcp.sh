@@ -211,8 +211,8 @@ installbbr() {
         #headurl=https://github.com/ylx2016/kernel/releases/download/$github_tag/kernel-headers-${github_ver}-1.x86_64.rpm
         #imgurl=https://github.com/ylx2016/kernel/releases/download/$github_tag/kernel-${github_ver}-1.x86_64.rpm
 
-        headurl=https://github.com/ylx2016/kernel/releases/download/Debian_Kernel_6.10.10_latest_bbr_2024.09.13-0757/linux-headers-6.10.10_6.10.10-1_amd64.deb
-        imgurl=https://github.com/ylx2016/kernel/releases/download/Debian_Kernel_6.10.10_latest_bbr_2024.09.13-0757/linux-image-6.10.10_6.10.10-1_amd64.deb
+        headurl=https://github.com/ylx2016/kernel/releases/download/Debian_Kernel_6.11.1_latest_arm64_bbr_2024.10.04-1145/linux-headers-6.11.1_6.11.1-1_arm64.deb
+        imgurl=https://github.com/ylx2016/kernel/releases/download/Debian_Kernel_6.11.1_latest_arm64_bbr_2024.10.04-1145/linux-image-6.11.1_6.11.1-1_arm64.deb
 
         check_empty $imgurl
         headurl=$(check_cn $headurl)
