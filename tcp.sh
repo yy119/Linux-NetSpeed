@@ -1054,27 +1054,27 @@ optimizing_system() {
 
   echo "net.ipv4.tcp_retries2 = 8
 net.ipv4.tcp_slow_start_after_idle = 0
-fs.file-max = 1000000
+fs.file-max = 524288
 fs.inotify.max_user_instances = 8192
 net.ipv4.tcp_syncookies = 1
 net.ipv4.tcp_fin_timeout = 30
 net.ipv4.tcp_tw_reuse = 1
-net.ipv4.ip_local_port_range = 1024 65000
+net.ipv4.ip_local_port_range = 1024 65535
 net.ipv4.tcp_max_syn_backlog = 16384
-net.ipv4.tcp_max_tw_buckets = 6000
+net.ipv4.tcp_max_tw_buckets = 60000
 net.ipv4.route.gc_timeout = 100
-net.ipv4.tcp_syn_retries = 1
-net.ipv4.tcp_synack_retries = 1
+net.ipv4.tcp_syn_retries = 3
+net.ipv4.tcp_synack_retries = 2
 net.core.somaxconn = 32768
 net.core.netdev_max_backlog = 32768
-net.ipv4.tcp_timestamps = 0
+net.ipv4.tcp_timestamps = 1
 net.ipv4.tcp_max_orphans = 32768
 # forward ipv4
 #net.ipv4.ip_forward = 1" >>/etc/sysctl.conf
   sysctl -p
-  echo "*               soft    nofile           1000000
-*               hard    nofile          1000000" >/etc/security/limits.conf
-  echo "ulimit -SHn 1000000" >>/etc/profile
+  echo "* soft nofile 524288
+* hard nofile 524288" >/etc/security/limits.conf
+  echo "ulimit -SHn 524288" >>/etc/profile
   read -p "需要重启VPS后，才能生效系统优化配置，是否现在重启 ? [Y/n] :" yn
   [ -z "${yn}" ] && yn="y"
   if [[ $yn == [Yy] ]]; then
